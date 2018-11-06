@@ -1,5 +1,9 @@
 # perdiem
 
+## data
+
+  - [2018](https://raw.githubusercontent.com/ulb/perdiem/master/2018/data.json)
+
 ## sources
 
 ### 2017

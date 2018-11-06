@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+function parse ( ) {
+	pdftotext -layout - - | tail +$1 | head -n-$2 | sed '/^DAF/d' | sed 's///g' | sed 's/  */ /g' | sed -E 's/ *(.*) € (.*) € (.*)/\1#\2#\3/g'
+}
+
+urls="https://ipfs.io/ipfs/QmbPk1kw67Vn8UQ9yXaE5YzErabqv9QRajnrXYQ92M3vmq \
+	  https://ipfs.io/ipfs/QmYe1GQvbkUEgJg2bt7pbYxxHPmbAZSjfmvLVZdr33fFDy"
+
+for url in $urls; do
+lines="$(curl "$url" | parse 9 6)"
+while read -r line; do
+	fullname="$(echo "$line" | cut -d'#' -f1)"
+	shortname="$(echo "$fullname" | sed -E 's/^(.*) \(.*\)$/\1/g')"
+	short="$(echo "$line" | cut -d'#' -f2 | sed 's/,00$//g')"
+	long="$(echo "$line" | cut -d'#' -f3 | sed 's/,00$//g')"
+	echo "{ \"shortname\": \"$shortname\" , \"fullname\": \"$fullname\" , \"short\": $short , \"long\": $long }"
+done <<< "$lines"
+done | jq -s 'map( { (.shortname): . } ) | add'
