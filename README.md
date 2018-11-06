@@ -10,5 +10,5 @@
 
 ### 2018
 
- - [EU](https://ipfs.io/ipfs/Qmae2Rks2pJJGL1Jo1hsF8EgssqTe5yVk79Jy8PUnfq2Hz)
- - [Not EU](https://ipfs.io/ipfs/QmcE2ygWepxsN3SwENg9iW6gtSpLZV8PHDjJx4dgHX4WCS)
+ - [EU](https://ipfs.io/ipfs/QmYe1GQvbkUEgJg2bt7pbYxxHPmbAZSjfmvLVZdr33fFDy)
+ - [Not EU](https://ipfs.io/ipfs/QmbPk1kw67Vn8UQ9yXaE5YzErabqv9QRajnrXYQ92M3vmq)
